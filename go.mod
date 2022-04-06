@@ -1,4 +1,4 @@
-module todo-app3
+module github.com/EgorBKV4/todo-app
 
 go 1.16
 

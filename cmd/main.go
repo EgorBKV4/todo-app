@@ -1,9 +1,9 @@
 package main
 
 import (
+	"github.com/EgorBKV4/todo-app"
+	"github.com/EgorBKV4/todo-app/pkg/handler"
 	"log"
-	todo "todo-app3"
-	"todo-app3/pkg/handler"
 )
 
 func main() {
