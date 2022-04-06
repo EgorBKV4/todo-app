@@ -8,8 +8,8 @@ type TodoList struct {
 
 type UsersList struct {
 	ID     int
-	UserId int
-	ListId int
+	UserID int
+	ListID int
 }
 
 type TodoItem struct {
@@ -21,6 +21,6 @@ type TodoItem struct {
 
 type ListsItem struct {
 	ID     int
-	ListId int
-	ItemId int
+	ListID int
+	ItemI  int
 }

@@ -9,7 +9,7 @@ func (h *Handler) getAllLists(c *gin.Context) {
 
 }
 
-func (h *Handler) getListById(c *gin.Context) {
+func (h *Handler) getListByID(c *gin.Context) {
 
 }
 
