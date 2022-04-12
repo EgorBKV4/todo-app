@@ -17,6 +17,6 @@ type Repository struct {
 	TodoItem
 }
 
-func NewRepository(DB *sqlx.DB) *Repository {
+func NewRepository(db *sqlx.DB) *Repository {
 	return &Repository{}
 }

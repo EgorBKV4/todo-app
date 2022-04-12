@@ -6,6 +6,7 @@ import (
 	"github.com/EgorBKV4/todo-app/pkg/repository"
 	"github.com/EgorBKV4/todo-app/pkg/service"
 	"github.com/joho/godotenv"
+	_ "github.com/lib/pq"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
 	"os"
@@ -20,19 +21,19 @@ func main() {
 		logrus.Fatalf("error loading env variables: %s", err.Error())
 	}
 
-	DB, err := repository.NewPostgresDB(repository.Config{
-		Host:     viper.GetString("DB.host"),
-		Port:     viper.GetString("DB.port"),
-		Username: viper.GetString("DB.username"),
-		DBName:   viper.GetString("DB.dbname"),
-		SSLMode:  viper.GetString("DB.sslmode"),
+	db, err := repository.NewPostgresDB(repository.Config{
+		Host:     viper.GetString("db.host"),
+		Port:     viper.GetString("db.port"),
+		Username: viper.GetString("db.username"),
+		DBName:   viper.GetString("db.dbname"),
+		SSLMode:  viper.GetString("db.sslmode"),
 		Password: os.Getenv("DB_PASSWORD"),
 	})
 	if err != nil {
-		logrus.Fatalf("failed to initialize DB: %s", err.Error())
+		logrus.Fatalf("failed to initialize db: %s", err.Error())
 	}
 
-	repos := repository.NewRepository(DB)
+	repos := repository.NewRepository(db)
 	services := service.NewService(repos)
 	handlers := handler.NewHandler(services)
 
