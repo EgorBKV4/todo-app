@@ -6,6 +6,8 @@ import (
 	"time"
 )
 
+//go:generate mockgen -source=service.go -destination=mocks/mock.go
+
 type Server struct {
 	httpServer *http.Server
 }
